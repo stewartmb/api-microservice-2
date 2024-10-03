@@ -8,7 +8,8 @@ WORKDIR /home/ubuntu/api-microservice-2
 RUN pip3 install "fastapi[standard]"
 RUN pip3 install pydantic
 RUN pip3 install mysql-connector-python
-RUN pip3 install boto3  # Instalar boto3 si lo necesitas para subir archivos a S3
+# Instalar boto3 si lo necesitas para subir archivos a S3
+RUN pip3 install boto3  
 
 # Copiar todo el contenido del repositorio clonado al directorio de trabajo del contenedor
 COPY . .
