@@ -1,7 +1,17 @@
+# Usar una imagen ligera de Python
 FROM python:3-slim
-WORKDIR /trabajo_parcial/API-Python
+
+# Establecer el directorio de trabajo dentro del contenedor
+WORKDIR /home/ubuntu/api-microservice-2
+
+# Instalar dependencias de FastAPI y MySQL
 RUN pip3 install "fastapi[standard]"
 RUN pip3 install pydantic
 RUN pip3 install mysql-connector-python
+RUN pip3 install boto3  # Instalar boto3 si lo necesitas para subir archivos a S3
+
+# Copiar todo el contenido del repositorio clonado al directorio de trabajo del contenedor
 COPY . .
-CMD ["fastapi", "run", "./app.py", "--port", "8000"]
+
+# Comando para correr FastAPI con Uvicorn
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
