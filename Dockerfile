@@ -14,4 +14,4 @@ RUN pip3 install boto3  # Instalar boto3 si lo necesitas para subir archivos a S
 COPY . .
 
 # Comando para correr FastAPI con Uvicorn
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8002"]
